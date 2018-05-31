@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   easy_roles :roles
+  
+  scope :with_role, proc { |r|
+    query = "#{self.table_name}.roles LIKE " + ['\'%',r,'%\''].join
+    where(query)
+  }
 end

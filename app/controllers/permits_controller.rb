@@ -49,10 +49,14 @@ class PermitsController < ApplicationController
     end
 
     def new
+        @users = User
         @permit = Permit.new
         @rooms = Room.all
         #### Query dapat an adviser tas facility
-        @users = User.all
+        #@user = User.find(roles: 'adviser')
+        
+        
+       @users = User.with_role('adviser')
     end
 
     def create

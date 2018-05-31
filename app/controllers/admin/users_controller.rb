@@ -17,7 +17,7 @@ class Admin::UsersController < ApplicationController
         user.surname = params[:surname]
         user.email = params[:email]
         user.address = params[:address]
-        user.userName = params[:userName]
+        #user.userName = params[:userName]
         user.password = params[:password]
         
         if params[:user_type]=="student_org"
